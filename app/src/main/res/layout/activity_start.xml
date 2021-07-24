@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:background="@color/teal_700"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chat App"
+        android:textColor="#fff"
+        android:textSize="25dp"
+        android:textAlignment="center"
+
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_startLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:padding="10dp"
+        android:text="Login"
+        android:layout_below="@id/app_name"
+        android:backgroundTint="@color/colorPrimaryDark"
+
+        />
+    <Button
+        android:id="@+id/btn_startRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Register"
+        android:layout_below="@id/btn_startLogin"
+        android:backgroundTint="@color/colorPrimaryDark"
+
+        />
+
+</RelativeLayout>
