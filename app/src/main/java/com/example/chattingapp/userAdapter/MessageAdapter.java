@@ -18,6 +18,7 @@ import com.example.chattingapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -52,7 +53,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MessageAdapter.ViewHolder holder, int position) {
+        Chat chat = list.get(position);
+        holder.show_msg.setText(chat.getMessage());
+        if (imageUrl.equals("default")) {
+            holder.circleImageView.setImageResource(R.mipmap.ic_launcher); ;
 
+        } else {
+            Glide.with(mcontect).load(imageUrl)
+                    .into(holder.circleImageView);
+        }
     }
 
     @Override
@@ -68,7 +77,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             show_msg = itemView.findViewById(R.id.show_message);
-            circleImageView = itemView.findViewById(R.id.user_circle_image);
+            circleImageView = itemView.findViewById(R.id.profile_image);
         }
 
     }
@@ -83,4 +92,5 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             return MSG_TYPE_LEFT;
         }
     }
+
 }

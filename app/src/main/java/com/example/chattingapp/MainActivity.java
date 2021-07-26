@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPageAdapter viewPageAdapter =
                 new ViewPageAdapter(getSupportFragmentManager());
-        viewPageAdapter.addFragment(new ChatsFragment(),"Chat");
         viewPageAdapter.addFragment(new UserFragment(),"User");
 
         viewPager.setAdapter(viewPageAdapter);
