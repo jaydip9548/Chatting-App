@@ -1,6 +1,7 @@
 package com.example.chattingapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.chattingapp.Fragment.ChatsFragment;
+import com.example.chattingapp.Fragment.UserFragment;
 import com.example.chattingapp.Model.User;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,6 +82,15 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager viewPager = findViewById(R.id.view_pager);
+
+        ViewPageAdapter viewPageAdapter =
+                new ViewPageAdapter(getSupportFragmentManager());
+        viewPageAdapter.addFragment(new ChatsFragment(),"Chat");
+        viewPageAdapter.addFragment(new UserFragment(),"User");
+
+        viewPager.setAdapter(viewPageAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
     }
 
     @Override
@@ -100,21 +112,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     class ViewPageAdapter extends FragmentPagerAdapter{
-        private ArrayList<>
+        private ArrayList<Fragment> fragments;
+        private ArrayList<String> titles;
 
         public ViewPageAdapter(@NonNull  FragmentManager fm) {
             super(fm);
+            this.fragments = new ArrayList<>();
+            this.titles = new ArrayList<>();
         }
 
         @NonNull
         @Override
         public Fragment getItem(int position) {
-            return null;
+            return fragments.get(position);
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return fragments.size();
+        }
+        public void addFragment(Fragment fragment,String title){
+            fragments.add(fragment);
+            titles.add(title);
+        }
+
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles.get(position);
         }
     }
 }

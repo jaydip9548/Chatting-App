@@ -1,9 +1,9 @@
 package com.example.chattingapp.Model;
 
 public class User {
-    String id;
-    String username;
-    String imageUrl;
+    public String id;
+   public String username;
+    public String imageUrl;
 
     public User() {
 
