@@ -1,7 +1,12 @@
 package com.example.chattingapp;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -9,14 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-import com.example.chattingapp.Fragment.ChatsFragment;
 import com.example.chattingapp.Fragment.UserFragment;
 import com.example.chattingapp.Model.User;
 import com.google.android.material.tabs.TabLayout;
@@ -31,8 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static com.example.chattingapp.R.menu.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -89,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(viewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
-
     }
 
     @Override
